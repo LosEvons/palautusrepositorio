@@ -8,7 +8,6 @@ class Komento(Enum):
     NOLLAUS = 3
     KUMOA = 4
 
-
 class Kayttoliittyma:
     def __init__(self, sovelluslogiikka, root):
         self._sovelluslogiikka = sovelluslogiikka
@@ -61,15 +60,8 @@ class Kayttoliittyma:
             arvo = int(self._syote_kentta.get())
         except Exception:
             pass
-
-        if komento == Komento.SUMMA:
-            self._sovelluslogiikka.plus(arvo)
-        elif komento == Komento.EROTUS:
-            self._sovelluslogiikka.miinus(arvo)
-        elif komento == Komento.NOLLAUS:
-            self._sovelluslogiikka.nollaa()
-        elif komento == Komento.KUMOA:
-            pass
+        
+        self._sovelluslogiikka.hae(komento, arvo)
 
         self._kumoa_painike["state"] = constants.NORMAL
 
