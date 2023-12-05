@@ -45,7 +45,7 @@ class All:
     def test(self, player):
         return True
     
-class Not:
+class Anti:
     def __init__(self, condition):
         self._condition = condition
     
