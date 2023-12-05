@@ -18,9 +18,9 @@ class QueryBuilder:
     
     def anti(self, condition):
         return QueryBuilder(And(self._matcher, Anti(condition)))
-
-    def opt(self, matcher):
-        return QueryBuilder(Or(self._matcher, matcher))
-        
+    
+    def oneOf(self, *matchers):
+        return QueryBuilder(And(self._matcher, Or(*matchers)))
+    
     def build(self):
         return self._matcher
